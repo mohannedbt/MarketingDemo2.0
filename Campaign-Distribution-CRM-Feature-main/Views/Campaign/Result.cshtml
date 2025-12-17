@@ -1,0 +1,152 @@
+﻿@model MarketingDemo.Entities.ResponseCampaign
+
+@{
+    ViewData["Title"] = "Distribution Successful";
+    Layout = "_Layout";
+}
+
+<style>
+    :root {
+        --success-gradient: linear-gradient(135deg, #198754 0%, #0d5a36 100%);
+    }
+
+    body {
+        background: #f4f7f6;
+    }
+
+    .result-card {
+        border-radius: 15px;
+        border: none;
+        overflow: hidden;
+    }
+
+    .header-success {
+        background: var(--success-gradient);
+        border: none;
+    }
+
+    .trace-detail-box {
+        background-color: #ffffff;
+        border-radius: 12px;
+        border: 1px solid #dee2e6;
+    }
+
+    .detail-item {
+        padding: 1rem;
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+    .detail-item:last-child {
+        border-bottom: none;
+    }
+
+    .status-badge {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .confetti-icon {
+        font-size: 4rem;
+        color: rgba(255, 255, 255, 0.3);
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+
+            @if (Model == null)
+            {
+                <div class="card border-0 shadow-sm text-center p-5">
+                    <i class="bi bi-exclamation-circle text-danger display-1 mb-4"></i>
+                    <h2 class="fw-bold">No Data Found</h2>
+                    <p class="text-muted">The system could not retrieve the campaign execution trace.</p>
+                    <div class="mt-3">
+                        <a asp-action="Create" class="btn btn-primary px-4 py-2 rounded-pill">
+                            <i class="bi bi-arrow-left me-2"></i>Return to Dashboard
+                        </a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card result-card shadow-lg">
+                    <div class="card-header header-success text-white py-5 px-4 position-relative">
+                        <i class="bi bi-check-all confetti-icon"></i>
+                        <div class="d-flex align-items-center">
+                            <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                <i class="bi bi-send-check fs-2"></i>
+                            </div>
+                            <div>
+                                <h2 class="h3 mb-0 fw-bold">Distribution Complete</h2>
+                                <p class="mb-0 opacity-75">Your marketing assets have been successfully dispatched.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body p-4 p-md-5">
+                        
+                        @if (Model.TypeReponse == "Email")
+                        {
+                            <div class="alert alert-info border-0 shadow-sm rounded-4 d-flex align-items-center mb-4">
+                                <div class="bg-info bg-opacity-10 p-3 rounded-3 me-3">
+                                    <i class="bi bi-envelope-paper-fill fs-3 text-info"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Email Pipeline Triggered</h6>
+                                    <small>Trace ID: #@Model.IdResponse - Authenticated via SMTP</small>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-primary border-0 shadow-sm rounded-4 d-flex align-items-center mb-4">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-3 me-3">
+                                    <i class="bi bi-share-fill fs-3 text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Social Media Post Active</h6>
+                                    <small>Trace ID: #@Model.IdResponse - API Request Authorized</small>
+                                </div>
+                            </div>
+                        }
+
+                        <div class="trace-detail-box mb-5 shadow-sm">
+                            <div class="detail-item d-flex justify-content-between align-items-center">
+                                <span class="text-muted text-uppercase small fw-bold">Execution ID</span>
+                                <span class="font-monospace fw-bold">TRC-@Model.IdResponse.ToString("D4")</span>
+                            </div>
+                            <div class="detail-item d-flex justify-content-between align-items-center">
+                                <span class="text-muted text-uppercase small fw-bold">Deployment Status</span>
+                                <span class="badge bg-success-subtle text-success border border-success-subtle status-badge rounded-pill">
+                                    <i class="bi bi-dot"></i> @Model.Statut
+                                </span>
+                            </div>
+                            <div class="detail-item d-flex justify-content-between align-items-center">
+                                <span class="text-muted text-uppercase small fw-bold">Sent On</span>
+                                <span class="fw-medium">@Model.DateEnvoi.ToString("MMMM dd, yyyy - HH:mm")</span>
+                            </div>
+                            <div class="detail-item d-flex justify-content-between align-items-center">
+                                <span class="text-muted text-uppercase small fw-bold">Source ID</span>
+                                <span class="fw-medium">CMP-@Model.CampaignId</span>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <a asp-action="Create" class="btn btn-dark btn-lg px-5 py-3 rounded-pill fw-bold shadow">
+                                <i class="bi bi-house-door me-2"></i>Back to Campaign Dashboard
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer bg-light border-0 py-3 text-center">
+                        <small class="text-muted italic">System Trace Generated Automatically</small>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

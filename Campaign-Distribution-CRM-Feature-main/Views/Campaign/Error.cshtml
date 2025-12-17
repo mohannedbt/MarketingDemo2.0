@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Error";
+    Layout = "_Layout";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="alert alert-danger text-center">
+            <h1 class="display-4">❌ Distribution Failed</h1>
+            <p class="lead">@ViewBag.Error</p>
+            <a href="/campaign/create" class="btn btn-outline-danger mt-3 px-4">
+                <i class="bi bi-arrow-left"></i> Try Again
+            </a>
+        </div>
+    </div>
+</div>

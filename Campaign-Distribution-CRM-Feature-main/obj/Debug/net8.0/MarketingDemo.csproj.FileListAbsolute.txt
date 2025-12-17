@@ -1,0 +1,83 @@
+C:\Users\elyes\RiderProjects\MarketingDemo\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\elyes\RiderProjects\MarketingDemo\bin\Debug\net8.0\appsettings.json
+C:\Users\elyes\RiderProjects\MarketingDemo\bin\Debug\net8.0\global.json
+C:\Users\elyes\RiderProjects\MarketingDemo\bin\Debug\net8.0\MarketingDemo.exe
+C:\Users\elyes\RiderProjects\MarketingDemo\bin\Debug\net8.0\MarketingDemo.deps.json
+C:\Users\elyes\RiderProjects\MarketingDemo\bin\Debug\net8.0\MarketingDemo.runtimeconfig.json
+C:\Users\elyes\RiderProjects\MarketingDemo\bin\Debug\net8.0\MarketingDemo.dll
+C:\Users\elyes\RiderProjects\MarketingDemo\bin\Debug\net8.0\MarketingDemo.pdb
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\MarketingDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\MarketingDemo.AssemblyInfoInputs.cache
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\MarketingDemo.AssemblyInfo.cs
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\MarketingDemo.csproj.CoreCompileInputs.cache
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\MarketingDemo.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\staticwebassets\msbuild.MarketingDemo.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\staticwebassets\msbuild.build.MarketingDemo.props
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.MarketingDemo.props
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.MarketingDemo.props
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\scopedcss\bundle\MarketingDemo.styles.css
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\MarketingDemo.dll
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\refint\MarketingDemo.dll
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\MarketingDemo.pdb
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\MarketingDemo.genruntimeconfig.cache
+C:\Users\elyes\RiderProjects\MarketingDemo\obj\Debug\net8.0\ref\MarketingDemo.dll
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\bin\Debug\net8.0\appsettings.json
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\bin\Debug\net8.0\global.json
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\bin\Debug\net8.0\MarketingDemo.exe
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\bin\Debug\net8.0\MarketingDemo.deps.json
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\bin\Debug\net8.0\MarketingDemo.runtimeconfig.json
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\bin\Debug\net8.0\MarketingDemo.dll
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\bin\Debug\net8.0\MarketingDemo.pdb
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\MarketingDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\MarketingDemo.AssemblyInfoInputs.cache
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\MarketingDemo.AssemblyInfo.cs
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\MarketingDemo.csproj.CoreCompileInputs.cache
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\MarketingDemo.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\MarketingDemo.sourcelink.json
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\staticwebassets\msbuild.MarketingDemo.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\staticwebassets\msbuild.build.MarketingDemo.props
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.MarketingDemo.props
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.MarketingDemo.props
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\scopedcss\bundle\MarketingDemo.styles.css
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\MarketingDemo.dll
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\refint\MarketingDemo.dll
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\MarketingDemo.pdb
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\MarketingDemo.genruntimeconfig.cache
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\ref\MarketingDemo.dll
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\MarketingDemo.RazorAssemblyInfo.cache
+C:\Users\elyes\RiderProjects\Campaign-Distribution-CRM-Feature\obj\Debug\net8.0\MarketingDemo.RazorAssemblyInfo.cs
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\bin\Debug\net8.0\appsettings.json
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\bin\Debug\net8.0\global.json
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\bin\Debug\net8.0\MarketingDemo.exe
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\bin\Debug\net8.0\MarketingDemo.deps.json
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\bin\Debug\net8.0\MarketingDemo.runtimeconfig.json
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\bin\Debug\net8.0\MarketingDemo.dll
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\bin\Debug\net8.0\MarketingDemo.pdb
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\MarketingDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\MarketingDemo.AssemblyInfoInputs.cache
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\MarketingDemo.AssemblyInfo.cs
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\MarketingDemo.csproj.CoreCompileInputs.cache
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\MarketingDemo.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\MarketingDemo.RazorAssemblyInfo.cache
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\MarketingDemo.RazorAssemblyInfo.cs
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\staticwebassets\msbuild.MarketingDemo.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\staticwebassets\msbuild.build.MarketingDemo.props
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.MarketingDemo.props
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.MarketingDemo.props
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\scopedcss\bundle\MarketingDemo.styles.css
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\MarketingDemo.dll
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\refint\MarketingDemo.dll
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\MarketingDemo.pdb
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\MarketingDemo.genruntimeconfig.cache
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\ref\MarketingDemo.dll

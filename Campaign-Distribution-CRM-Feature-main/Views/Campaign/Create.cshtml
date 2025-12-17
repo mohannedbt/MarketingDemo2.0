@@ -1,0 +1,192 @@
+﻿@using MarketingDemo.Entities
+@{
+    ViewData["Title"] = "Campaign Orchestrator";
+    var campaigns = ViewBag.Campaigns as IEnumerable<CampaignMarketing>;
+    var templates = ViewBag.Templates as IEnumerable<Template>;
+}
+@{
+    Layout = "_Layout";
+}
+
+<style>
+    :root {
+        --primary-gradient: linear-gradient(135deg, #0d6efd 0%, #003d99 100%);
+    }
+
+    body {
+        background: #f4f7f6;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* Card Styling */
+    .main-card {
+        border-radius: 15px;
+        overflow: hidden;
+        border: none;
+    }
+
+    .card-header-gradient {
+        background: var(--primary-gradient);
+        border: none;
+    }
+
+    /* Section Headers */
+    .section-label {
+        font-size: 0.75rem;
+        letter-spacing: 1.2px;
+        color: #6c757d;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    /* Campaign Radio Cards */
+    .campaign-option {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        cursor: pointer;
+        border: 2px solid #dee2e6;
+    }
+
+    .campaign-option:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border-color: #adb5bd;
+    }
+
+    .btn-check:checked + .campaign-option {
+        background-color: #f0f7ff;
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+    }
+
+    /* Template List Styling */
+    .template-item {
+        border-left: 5px solid transparent !important;
+        transition: all 0.2s ease;
+    }
+
+    .template-item:hover {
+        background-color: #f8f9fa;
+        padding-left: 1.5rem !important;
+    }
+
+    .form-check-input:checked + .template-content h6 {
+        color: #0d6efd;
+    }
+
+    .list-group-item:has(input:checked) {
+        border-left: 5px solid #0d6efd !important;
+        background-color: #f0f7ff;
+    }
+
+    /* Launch Button Animation */
+    .btn-launch {
+        background: var(--primary-gradient);
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-launch:hover {
+        filter: brightness(1.1);
+        transform: scale(1.02);
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-9">
+            
+            <div class="card main-card shadow-lg">
+                <div class="card-header card-header-gradient text-white py-4 px-4">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                            <i class="bi bi-rocket-takeoff fs-3"></i>
+                        </div>
+                        <div>
+                            <h2 class="h4 mb-0 fw-bold">Marketing Launchpad</h2>
+                            <p class="mb-0 opacity-75 small">Orchestrate and distribute multi-channel campaigns</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body p-4 p-md-5">
+                    <form asp-action="Create" method="post">
+                        
+                        <div class="mb-5">
+                            <span class="section-label fw-bold text-uppercase">STEP 1: Choose Campaign Object</span>
+                            <div class="row g-3">
+                                @foreach (var campaign in campaigns)
+                                {
+                                    <div class="col-md-6">
+                                        <input type="radio" class="btn-check" name="campaignId" id="camp_@campaign.IdCampagne" value="@campaign.IdCampagne" required>
+                                        <label class="btn btn-light campaign-option w-100 h-100 text-start p-3" for="camp_@campaign.IdCampagne">
+                                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                                <h5 class="mb-0 fw-bold">@campaign.Nom</h5>
+                                                <span class="badge @(campaign.Statut ? "bg-success" : "bg-secondary") rounded-pill">
+                                                    @(campaign.Statut ? "Active" : "Draft")
+                                                </span>
+                                            </div>
+                                            <p class="text-muted small mb-0">
+                                                <i class="bi bi-bullseye me-1"></i> @campaign.Objectif
+                                            </p>
+                                        </label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="mb-5">
+                            <span class="section-label fw-bold text-uppercase">STEP 2: Select Messaging Assets</span>
+                            <div class="list-group list-group-flush rounded-3 border shadow-sm">
+                                @foreach (var template in templates)
+                                {
+                                    <label class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3 template-item">
+                                        <input class="form-check-input flex-shrink-0" type="radio" name="templateId" value="@template.Id" style="width:1.2rem; height:1.2rem;" required>
+                                        <div class="template-content w-100">
+                                            <div class="d-flex justify-content-between">
+                                                <h6 class="mb-1 fw-bold">Audience: @template.ToWho</h6>
+                                                <span class="text-muted x-small">ID #@template.Id</span>
+                                            </div>
+                                            <p class="mb-0 text-muted small">@template.Content</p>
+                                        </div>
+                                    </label>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="bg-light rounded-4 p-4 border border-dashed">
+                            <div class="row align-items-center">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <span class="section-label fw-bold text-uppercase">STEP 3: Deployment</span>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white border-end-0"><i class="bi bi-layers text-primary"></i></span>
+                                        <select name="channelType" class="form-select border-start-0 ps-0 fw-bold" required>
+                                            <option value="" disabled selected>Select Channel...</option>
+                                            <option value="Email">Email Marketing Service</option>
+                                            <option value="SocialMedia">Social Media API Pipeline</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-md-end pt-4">
+                                    <button type="submit" class="btn btn-primary btn-launch btn-lg px-5 py-3 rounded-pill fw-bold shadow">
+                                        EXECUTE DISTRIBUTION <i class="bi bi-chevron-right ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger mt-4 border-0 shadow-sm rounded-3 d-flex align-items-center">
+                    <i class="bi bi-exclamation-triangle-fill fs-3 me-3"></i>
+                    <div>
+                        <h6 class="mb-0 fw-bold">Critical Error</h6>
+                        <p class="mb-0 small">@ViewBag.Error</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
