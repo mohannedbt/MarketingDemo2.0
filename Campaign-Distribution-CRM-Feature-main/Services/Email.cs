@@ -11,38 +11,43 @@ public class EmailCampagneDistribution : DistributionCanalService
         ITemplateRepository templateRepo)
         : base(campaignRepo, canalRepo, templateRepo) { }
 
-    protected override async Task<Template> construireTemplate(CampaignMarketing campaign, CanalDistribution canal)
+    /// <summary>
+    /// Now uses the 'chosenTemplate' provided by the base service (from UI selection)
+    /// </summary>
+    protected override async Task<Template> construireTemplate(CampaignMarketing campaign, CanalDistribution canal, Template chosenTemplate)
     {
-        // CASTING: Access the specialized EmailCanal from your diagram
         var emailCanal = canal as EmailCanal;
         
-        // Realistic CRM: Merging campaign data with canal-specific data (Objet)
+        // Use the actual Content selected by the user in the UI
+        string finalContent = $"Subject: {emailCanal?.Objet ?? "Update"} \n\n" +
+                              $"Hello, \n" +
+                              $"{chosenTemplate.Content} \n\n" +
+                              $"Best regards, {campaign.Nom} Team.";
+
         return new Template 
         {
-            Content = $"Subject: {emailCanal?.Objet ?? "Special Offer"} \n\n" +
-                      $"Dear Client, our campaign '{campaign.Nom}' has launched! " +
-                      $"Goal: hit our objective",
-            ToWho = $"Mailing List: {string.Join(", ", emailCanal?.ListeEnvoi ?? new List<string> { "Subscribers" })}"
+            Id = chosenTemplate.Id,
+            Content = finalContent,
+            ToWho = chosenTemplate.ToWho // Preserve the audience defined in the template
         };
     }
 
     protected override async Task<ResponseCampaign> preparerDonnees(CampaignMarketing campaign, Template template)
     {
-        // Mapping to ReponseCampagne entity from the diagram
         return new ResponseCampaign 
         {
-            IdResponse = new Random().Next(1, 1000), // idReponse in diagram
+            IdResponse = new Random().Next(1000, 9999),
             CampaignId = campaign.IdCampagne,
-            TypeReponse = "Email", // typeReponse in diagram
-            Statut = "Queued",
-            ClientId = 0 // In a real CRM, this would be the specific recipient ID
+            TypeReponse = "Email",
+            Statut = "Sent Successfully", // Transition from 'Queued' to 'Sent'
+            DateEnvoi = DateTime.Now
         };
     }
 
     protected override async Task envoyer(int responseId)
     {
-        // This is the "Hook" where you would integrate with an SMTP service like SendGrid
-        Console.WriteLine($"📧 [SMTP Service] Dispatching emails to the list. Tracking Trace: {responseId}");
+        // Simulating SMTP integration
+        Console.WriteLine($"📧 [SMTP] Email sent via EmailCanal logic. Trace ID: {responseId}");
         await Task.CompletedTask;
     }
 }

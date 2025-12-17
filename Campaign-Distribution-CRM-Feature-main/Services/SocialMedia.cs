@@ -11,38 +11,43 @@ public class SocialMediaCampagneDistribution : DistributionCanalService
         ITemplateRepository templateRepo)
         : base(campaignRepo, canalRepo, templateRepo) { }
 
-    protected override async Task<Template> construireTemplate(CampaignMarketing campaign, CanalDistribution canal)
+    /// <summary>
+    /// Now uses the 'chosenTemplate' provided by the base service (from UI selection)
+    /// </summary>
+    protected override async Task<Template> construireTemplate(CampaignMarketing campaign, CanalDistribution canal, Template chosenTemplate)
     {
         // CASTING: Access the specific properties defined in your Class Diagram
         var smCanal = canal as SocialMediaCanal;
         string platform = smCanal?.Platform ?? "Social Media";
-        string audience = smCanal?.Audience ?? "General Public";
+
+        // Logic: Transform the chosen text into a social-media-friendly post with hashtags
+        string hashTag = campaign.Nom.Replace(" ", "");
+        string finalPost = $"🚀 {chosenTemplate.Content} \n\nCheck us out on {platform}! #{platform} #{hashTag}";
 
         return new Template 
         {
-            // Using the 'Content' and 'ToWho' fields from your Diagram's template box
-            Content = $"🚀 {campaign.Nom}: Join us on {platform}! for our compaign #{platform}",
-            ToWho = $"Target Audience: {audience}"
+            Id = chosenTemplate.Id,
+            Content = finalPost,
+            ToWho = $"Audience Group: {smCanal?.Audience ?? "General Public"}"
         };
     }
 
     protected override async Task<ResponseCampaign> preparerDonnees(CampaignMarketing campaign, Template template)
     {
-        // Aligned with ReponseCampagne in the diagram (ClientId, typeReponse, idReponse)
         return new ResponseCampaign 
         {
             IdResponse = new Random().Next(1001, 2000),
             CampaignId = campaign.IdCampagne,
-            TypeReponse = "SocialPost", // Matches the diagram's typeReponse
-            Statut = "Posted",
-            ClientId = 0 // In a real CRM, this would link to a specific customer segment
+            TypeReponse = "SocialMedia",
+            Statut = "Successfully Published",
+            DateEnvoi = DateTime.Now
         };
     }
 
     protected override async Task envoyer(int responseId)
     {
-        // This is where you would call the TikTok/Facebook/LinkedIn API
-        Console.WriteLine($"📱 [API DISPATCH] Successfully posted to Social Media. Internal Trace ID: {responseId}");
+        // Simulating the API Call (TikTok, LinkedIn, or Facebook API)
+        Console.WriteLine($"📱 [API DISPATCH] Content posted to platform API. Trace ID: {responseId}");
         await Task.CompletedTask;
     }
 }

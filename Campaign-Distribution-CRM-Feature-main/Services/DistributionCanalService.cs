@@ -20,46 +20,44 @@ public abstract class DistributionCanalService
     }
 
     /// <summary>
-    /// The Template Method: Defines the skeleton of the distribution process.
-    /// This matches the 'distribuerCampagne()' flow in the class diagram.
+    /// Updated Template Method to include templateId.
     /// </summary>
-    public async Task<ResponseCampaign> distribuerCampaign(int campaignId)
+    public async Task<ResponseCampaign> distribuerCampaign(int campaignId, int templateId)
     {
-        // Fetch the campaign using the ID
+        // 1. Fetch the campaign
         var campaign = await _campaignRepo.findByIdAsync(campaignId);
         
-        // Fetch the specific canal configuration (EmailCanal or SocialMediaCanal)
+        // 2. NEW: Fetch the specific template chosen by the user in the View
+        var chosenTemplate = await _templateRepo.getByIdAsync(templateId);
+        
+        // 3. Fetch canal configuration
         var canal = await _canalRepo.findCanalByTypeAsync(campaign.CanalType);
         
-        // 1. Hook: build specific content (construireTemplate in diagram)
-        var template = await construireTemplate(campaign, canal); 
+        // 4. Hook: Build specific content using the chosen template
+        var processedTemplate = await construireTemplate(campaign, canal, chosenTemplate); 
         
-        // 2. Prepare the response trace (preparerDonnees in diagram)
-        var response = await preparerDonnees(campaign, template);
+        // 5. Prepare the response trace
+        var response = await preparerDonnees(campaign, processedTemplate);
         
-        // 3. Hook: Actual delivery (envoyer in diagram)
+        // 6. Hook: Actual delivery
         await envoyer(response.IdResponse); 
         
-        // 4. Log the result (enregistrerTrace in diagram)
+        // 7. Log the result
         await enregistrerTrace(response);
         
         return response;
     }
 
-    // These abstract methods must be implemented by EmailCampagneDistribution 
-    // and SocialMediaCampagneDistribution as shown in the diagram.
-    
-    protected abstract Task<Template> construireTemplate(CampaignMarketing campaign, CanalDistribution canal);
+    // Updated abstract method signature to accept the chosen template
+    protected abstract Task<Template> construireTemplate(CampaignMarketing campaign, CanalDistribution canal, Template chosenTemplate);
     
     protected abstract Task<ResponseCampaign> preparerDonnees(CampaignMarketing campaign, Template template);
     
     protected abstract Task envoyer(int responseId);
 
-    // Virtual method for logging, providing a default implementation
     protected virtual Task enregistrerTrace(ResponseCampaign response) 
     {
-        // Realistic CRM logic: Save the response to the ResponseRepository
-        Console.WriteLine($"Trace recorded for Campaign {response.CampaignId} on {response.TypeReponse}");
+        Console.WriteLine($"Trace recorded for Campaign {response.CampaignId} using Template {response.TypeReponse}");
         return Task.CompletedTask;
     }
 }

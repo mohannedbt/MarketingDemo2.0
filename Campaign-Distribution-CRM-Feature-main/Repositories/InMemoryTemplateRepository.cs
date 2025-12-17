@@ -29,4 +29,8 @@ public class InMemoryTemplateRepository : ITemplateRepository
         _templates.Add(template);
         return Task.CompletedTask;
     }
+    public Task<Template?> getByIdAsync(int id)
+    {
+        return Task.FromResult(_templates.FirstOrDefault(t => t.Id == id));
+    }
 }

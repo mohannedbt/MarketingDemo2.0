@@ -81,3 +81,4 @@ C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Dis
 C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\MarketingDemo.pdb
 C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\MarketingDemo.genruntimeconfig.cache
 C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\ref\MarketingDemo.dll
+C:\Users\mohan\Downloads\Campaign-Distribution-CRM-Feature-main (1)\Campaign-Distribution-CRM-Feature-main\obj\Debug\net8.0\MarketingDemo.sourcelink.json

@@ -8,21 +8,21 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // --- 1. Register Repositories as SINGLETON ---
-// This ensures your in-memory lists persist while the app is running
 builder.Services.AddSingleton<ICampaigneRepository, InMemoryCampaignRepository>();
 builder.Services.AddSingleton<ICanalRepository, InMemoryCanalRepository>();
 builder.Services.AddSingleton<ITemplateRepository, InMemoryTemplateRepository>();
-// builder.Services.AddSingleton<IResponseRepository, InMemoryResponseRepository>(); // Uncomment if you created this
 
-// --- 2. Register Distribution Strategies ---
-// Registering them this way allows the Controller to receive 
-// IEnumerable<DistributionCanalService> and pick the right one.
+// --- 2. Register The Orchestrator Service (NEW) ---
+// This connects the Controller to the logic layer
+builder.Services.AddScoped<IMarketing, CampagneMarketingService>();
+
+// --- 3. Register Distribution Strategies ---
 builder.Services.AddScoped<DistributionCanalService, EmailCampagneDistribution>();
 builder.Services.AddScoped<DistributionCanalService, SocialMediaCampagneDistribution>();
 
 var app = builder.Build();
 
-// --- 3. Pipeline Configuration ---
+// --- 4. Pipeline Configuration ---
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -30,11 +30,13 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles(); // This allows the browser to download bootstrap.cssapp.UseRouting();
+app.UseStaticFiles(); 
+app.UseRouting();
 app.UseAuthorization();
 
+// Updated routing to match your Controller name
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Campaign}/{action=Create}/{id?}"); // Point to your campaign creator by default
+    pattern: "{controller=Campaign}/{action=Create}/{id?}");
 
 app.Run();

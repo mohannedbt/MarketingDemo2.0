@@ -7,4 +7,5 @@ public interface ITemplateRepository
 {
     Task createAsync(Template template);
     Task<IEnumerable<Template>> getAllAsync();
+    Task<Template?> getByIdAsync(int id);
 }
