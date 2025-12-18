@@ -15,6 +15,8 @@ builder.Services.AddSingleton<ITemplateRepository, InMemoryTemplateRepository>()
 // --- 2. Register The Orchestrator Service (NEW) ---
 // This connects the Controller to the logic layer
 builder.Services.AddScoped<IMarketing, CampagneMarketingService>();
+builder.Services.AddSingleton<IResponseRepository, InMemoryResponseRepository>();
+
 
 // --- 3. Register Distribution Strategies ---
 builder.Services.AddScoped<DistributionCanalService, EmailCampagneDistribution>();

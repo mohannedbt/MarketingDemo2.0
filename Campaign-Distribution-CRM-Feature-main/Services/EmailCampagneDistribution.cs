@@ -8,8 +8,8 @@ public class EmailCampagneDistribution : DistributionCanalService
     public EmailCampagneDistribution(
         ICampaigneRepository campaignRepo, 
         ICanalRepository canalRepo, 
-        ITemplateRepository templateRepo)
-        : base(campaignRepo, canalRepo, templateRepo) { }
+        ITemplateRepository templateRepo,IResponseRepository responseRepo)
+        : base(campaignRepo, canalRepo, templateRepo, responseRepo) { }
 
     /// <summary>
     /// Now uses the 'chosenTemplate' provided by the base service (from UI selection)

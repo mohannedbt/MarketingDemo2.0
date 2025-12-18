@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MarketingDemo.Entities.ResponseCampaign>
+
+@{
+    Layout = "_Layout";
+}
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold"><i class="bi bi-clock-history me-2"></i>Distribution History</h2>
+        <a asp-action="Create" class="btn btn-primary rounded-pill">New Distribution</a>
+    </div>
+
+    <div class="card border-0 shadow-sm">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="bg-light">
+                <tr>
+                    <th class="ps-4">Trace ID</th>
+                    <th>Campaign</th>
+                    <th>Channel</th>
+                    <th>Status</th>
+                    <th>Date Sent</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model) {
+                    <tr>
+                        <td class="ps-4 fw-bold text-primary">#@item.IdResponse</td>
+                        <td>Campaign @item.CampaignId</td>
+                        <td>
+                            <span class="badge @(item.TypeReponse == "Email" ? "bg-info" : "bg-primary")">
+                                @item.TypeReponse
+                            </span>
+                        </td>
+                        <td><span class="text-success">● @item.Statut</span></td>
+                        <td class="text-muted">@item.DateEnvoi.ToString("g")</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

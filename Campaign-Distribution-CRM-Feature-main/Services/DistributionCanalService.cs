@@ -8,15 +8,18 @@ public abstract class DistributionCanalService
     protected readonly ICampaigneRepository _campaignRepo;
     protected readonly ICanalRepository _canalRepo;
     protected readonly ITemplateRepository _templateRepo;
+    protected readonly IResponseRepository _responseRepo;
 
     public DistributionCanalService(
         ICampaigneRepository campaignRepo,
         ICanalRepository canalRepo,
-        ITemplateRepository templateRepo)
+        ITemplateRepository templateRepo,
+        IResponseRepository responseRepo)
     {
         _campaignRepo = campaignRepo;
         _canalRepo = canalRepo;
         _templateRepo = templateRepo;
+        _responseRepo = responseRepo;
     }
 
     /// <summary>
@@ -55,9 +58,9 @@ public abstract class DistributionCanalService
     
     protected abstract Task envoyer(int responseId);
 
-    protected virtual Task enregistrerTrace(ResponseCampaign response) 
+    protected virtual async Task enregistrerTrace(ResponseCampaign response) 
     {
-        Console.WriteLine($"Trace recorded for Campaign {response.CampaignId} using Template {response.TypeReponse}");
-        return Task.CompletedTask;
+        // Inject the new IResponseRepository into your service constructor
+        await _responseRepo.AddResponseAsync(response); 
     }
 }

@@ -28,7 +28,7 @@ public class CampaignController : Controller
     {
         try
         {
-            // The service now handles strategy finding and execution logic
+            // The service now handles template finding and execution logic
             var response = await _marketingService.DistribuerCampagne(campaignId, templateId, channelType);
             
             return View("Result", response);
@@ -40,5 +40,14 @@ public class CampaignController : Controller
             ViewBag.Templates = await _marketingService.ListTemplates();
             return View("Create");
         }
+    }
+    [HttpGet("history")]
+    public async Task<IActionResult> History()
+    {
+        // Simple and clean: the service does the work
+        var history = await _marketingService.GetDistributionHistory();
+    
+        // This will now contain the Love Scores and Sentiment we added!
+        return View(history);
     }
 }
