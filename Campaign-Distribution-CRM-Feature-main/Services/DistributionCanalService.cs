@@ -22,45 +22,35 @@ public abstract class DistributionCanalService
         _responseRepo = responseRepo;
     }
 
-    /// <summary>
-    /// Updated Template Method to include templateId.
-    /// </summary>
     public async Task<ResponseCampaign> distribuerCampaign(int campaignId, int templateId)
     {
-        // 1. Fetch the campaign
+        // 1. Fetch data
         var campaign = await _campaignRepo.findByIdAsync(campaignId);
-        
-        // 2. NEW: Fetch the specific template chosen by the user in the View
         var chosenTemplate = await _templateRepo.getByIdAsync(templateId);
-        
-        // 3. Fetch canal configuration
         var canal = await _canalRepo.findCanalByTypeAsync(campaign.CanalType);
         
-        // 4. Hook: Build specific content using the chosen template
+        // 2. Hook: Build specific content
         var processedTemplate = await construireTemplate(campaign, canal, chosenTemplate); 
         
-        // 5. Prepare the response trace
         var response = await preparerDonnees(campaign, processedTemplate);
         
-        // 6. Hook: Actual delivery
+        // 4. Hook: Actual delivery (Simulated)
         await envoyer(response.IdResponse); 
         
-        // 7. Log the result
+        // 5. Internal Log: Save to InMemory repository
         await enregistrerTrace(response);
         
         return response;
     }
 
-    // Updated abstract method signature to accept the chosen template
+    // Abstract methods for Strategy implementations (Email vs SocialMedia)
     protected abstract Task<Template> construireTemplate(CampaignMarketing campaign, CanalDistribution canal, Template chosenTemplate);
-    
     protected abstract Task<ResponseCampaign> preparerDonnees(CampaignMarketing campaign, Template template);
-    
     protected abstract Task envoyer(int responseId);
 
+    // Virtual method: Can be overridden if a specific channel needs special logging
     protected virtual async Task enregistrerTrace(ResponseCampaign response) 
     {
-        // Inject the new IResponseRepository into your service constructor
         await _responseRepo.AddResponseAsync(response); 
     }
 }

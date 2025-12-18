@@ -150,3 +150,28 @@
         </div>
     </div>
 </div>
+
+
+<div class="mb-5">
+    <h6 class="text-muted fw-bold small text-uppercase mb-3">
+        <i class="bi bi-broadcast me-2 text-primary"></i> External API Sync
+    </h6>
+    <div class="d-flex flex-wrap gap-2">
+        @if (Model.NotifiedPlatforms != null && Model.NotifiedPlatforms.Any())
+        {
+            @foreach (var platform in Model.NotifiedPlatforms)
+            {
+                <div class="badge rounded-pill bg-white text-dark border shadow-sm p-2 px-3">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    @platform API
+                </div>
+            }
+        }
+        else
+        {
+            <div class="alert alert-warning py-2 px-3 small rounded-pill">
+                <i class="bi bi-info-circle me-2"></i>No external observers were triggered for this channel.
+            </div>
+        }
+    </div>
+</div>

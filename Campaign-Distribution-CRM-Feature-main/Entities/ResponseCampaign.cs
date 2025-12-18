@@ -14,4 +14,5 @@ public class ResponseCampaign
     public int CampaignId { get; set; }
     public string Statut { get; set; } = string.Empty;
     public DateTime DateEnvoi { get; set; } = DateTime.UtcNow;
+    public List<string> NotifiedPlatforms { get; set; } = new List<string>();
 }

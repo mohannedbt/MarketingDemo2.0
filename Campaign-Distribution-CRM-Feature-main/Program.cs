@@ -11,7 +11,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<ICampaigneRepository, InMemoryCampaignRepository>();
 builder.Services.AddSingleton<ICanalRepository, InMemoryCanalRepository>();
 builder.Services.AddSingleton<ITemplateRepository, InMemoryTemplateRepository>();
-
+// Program.cs
+builder.Services.AddScoped<ICampaignObserver, FacebookObserver>();
+builder.Services.AddScoped<ICampaignObserver, InstagramObserver>();
+// If you have one for Email:
+builder.Services.AddScoped<ICampaignObserver, EmailAnalyticsObserver>();
 // --- 2. Register The Orchestrator Service (NEW) ---
 // This connects the Controller to the logic layer
 builder.Services.AddScoped<IMarketing, CampagneMarketingService>();
